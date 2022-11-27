@@ -4,7 +4,7 @@ import Card from '../../global components/Card'
 
 function Landing() {
   return (
-    <div className='landing page'>
+    <div className='landing page font-sans'>
     <Card>
       <div className='welcome_message message'>Hello _User_, Welcome to Your Garden Journal</div>
     </Card>

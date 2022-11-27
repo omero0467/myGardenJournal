@@ -12,8 +12,8 @@
 }
 
 .page {
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 .Card {
@@ -27,16 +27,30 @@
   color: initial;
 }
 
-input {
-  border: 2px solid lightblue;
-  border-radius: 0.4rem;
-  width: 80%;
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input:focus {
+  outline: none;
 }
 
 .login, .landing {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.message {
+  text-align: center;
+}
+
+.main-container {
+  max-width: 900px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .landing {
@@ -56,8 +70,8 @@ input {
 }
 
 .user_image {
-  width: 100px;
-  height: 100px;
+  min-width: 150px;
+  min-height: 150px;
   border-radius: 50%;
   background-color: lightgreen;
   display: grid;
@@ -66,13 +80,42 @@ input {
 
 .user_login {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  height: 80vmin;
-  width: 80%;
+  height: 82vh;
+  width: clamp(300px, 60vw, 600px);
+  align-self: center;
 }
 
+.my_garden {
+  background: rgb(85, 167, 112);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row;
+  gap: 1rem;
+  margin: 40vh 1rem;
+}
+
+.Card.welcome_message {
+  position: relative;
+  top: 20vh;
+  margin: 0 2rem;
+}
+
+.plant_cards_container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   margin: 0;
   padding: 0;
@@ -103,6 +146,9 @@ code {
   .navigation_menu {
     display: flex;
     flex-direction: column;
+  }
+  .user_login {
+    min-height: 65vh;
   }
 }
 
