@@ -6,7 +6,7 @@ import { getAuth } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyACPRl6Sx-EhsFx2FAtM5sD9NO0PJh-2Kg",
+  apiKey: "AIzaSyACPRl6Sx-EhsFx2FAtM5sD9NO0PJh-2Kg",//! replace to process.env.REACT_APP_FIREBASE_KEY
   authDomain: "my-garden-journal-6876c.firebaseapp.com",
   projectId: "my-garden-journal-6876c",
   storageBucket: "my-garden-journal-6876c.appspot.com",

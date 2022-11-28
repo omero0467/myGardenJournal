@@ -10,6 +10,8 @@ import SignUp from './components/Pages/SignUp';
 import Account from './components/Pages/Account';
 import { AuthContext } from './context/AuthContext';
 import ProtectedRoute from './global components/ProtectedRoute';
+import PlantsApiContext from './context/PlantsApiContext';
+
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
     <Routes>
     <Route path='/' element={<Landing />}/>
     <Route path='/login' element={<LoginPage />}/>
-    <Route path='/mygarden' element={<MyGarden />}/>
-    <Route path='/garden' element={<Garden />}/>
+    <Route path='/mygarden' element={<ProtectedRoute> <MyGarden /> </ProtectedRoute>}/>
+    <Route path='/garden' element={<ProtectedRoute><PlantsApiContext> <Garden /> </PlantsApiContext></ProtectedRoute>}/>
     <Route path='/signup' element={<SignUp />}/>
     <Route path='/account' element={<ProtectedRoute> <Account /> </ProtectedRoute>}/>
    </Routes>
