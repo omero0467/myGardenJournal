@@ -1,5 +1,5 @@
 import React, {  createContext, useContext, useReducer } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import PlantsREDUCER from './PlantsREDUCER'
 import useFetch from '../Hooks/useFetch'
 
