@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import Card from "../../global components/Card";
+import { GiFarmer } from 'react-icons/gi'
+
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -23,7 +25,7 @@ function LoginPage() {
       setTimeout(() => {
         setPassword("");
         setEmail("");
-        toMyGarden("/account");//!
+        toMyGarden("/mygarden");
         setSucsess("");
       }, 2000);
     } catch (error) {
@@ -34,8 +36,8 @@ function LoginPage() {
 
   return (
     <div className="login page flex-center">
-      <Card className="user_login ">
-        <div className="user_image">some img</div>
+      <Card className="user_login">
+        <div className="user_image border-4 border-indigo-600 shadow-xl">{<GiFarmer size={70} color={'rgb(79 70 229)'}/>}</div>
         <div className="max-w-[600px] mx-auto p-4">
           <div>
             <h1 className="text-xl font-bold py-2"> Sign in to your account</h1>
