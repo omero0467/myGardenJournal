@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import Card from "../../global components/Card";
-import { GiFarmer } from 'react-icons/gi'
-
+import { GiFarmer } from "react-icons/gi";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -30,14 +29,16 @@ function LoginPage() {
       }, 2000);
     } catch (error) {
       setError(error.message);
-      console.log(error.message);
+      console.log(error);
     }
   }
 
   return (
     <div className="login page flex-center">
       <Card className="user_login">
-        <div className="user_image border-4 border-indigo-600 shadow-xl">{<GiFarmer size={70} color={'rgb(79 70 229)'}/>}</div>
+        <div className="user_image border-4 border-indigo-600 shadow-xl">
+          {<GiFarmer size={70} color={"rgb(79 70 229)"} />}
+        </div>
         <div className="max-w-[600px] mx-auto p-4">
           <div>
             <h1 className="text-xl font-bold py-2"> Sign in to your account</h1>
@@ -81,8 +82,8 @@ function LoginPage() {
             <button className="rounded-lg w-full bg-blue-600 p-3 my-2 text-white hover:bg-blue-500 border border-blue-500">
               Sign in
             </button>
-            <span className="underline text-red-500">{error && error}</span>
-            <span className="underline text-green-500">
+            <span className={`${'border-b-2 border-b-red-400'} text-red-500`}>{error && error}</span>
+            <span className="border-b-2 border-b-emerald-200 text-green-500">
               {sucsess && sucsess}
             </span>
           </form>

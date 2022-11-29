@@ -10,7 +10,7 @@ function PlantsREDUCER(state,action) {
         case REDUCER_ACTIONS.add:
             console.log(state);
             return axios.post('http://localhost:3003/House_Plants2', {
-                
+                //!check upload to server
             })
     
         default:

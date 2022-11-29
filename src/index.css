@@ -12,6 +12,7 @@
 }
 
 .page {
+  position: relative;
   min-width: 100%;
   min-height: 100vh;
 }
@@ -36,7 +37,7 @@ input:focus {
   outline: none;
 }
 
-.login, .landing {
+.login, .landing, .main-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,10 +48,8 @@ input:focus {
 }
 
 .main-container {
-  max-width: 900px;
+  max-width: max-content;
   position: relative;
-  left: 50%;
-  transform: translate(-50%);
 }
 
 .landing {
@@ -73,7 +72,9 @@ input:focus {
   min-width: 150px;
   min-height: 150px;
   border-radius: 50%;
-  background-color: lightgreen;
+  background: #ff7e5f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #feb47b, #ff7e5f); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: grid;
   place-items: center;
 }
@@ -134,10 +135,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-@media (max-width: 390px) {
+.root {
+  width: 100%;
+  height: min-content;
+}
+
+@media (max-width: 900px) {
   .Nav {
+    margin-left: 1rem;
+    width: 7rem;
     position: absolute;
-    right: -100%;
+    top: 0;
+    transform: translateX(100vw);
+    overflow-y: none;
     padding: 2rem;
     flex-direction: column;
     background-color: #f4f4f4;
