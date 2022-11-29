@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import Card from "../global components/Card";
-import { ProvidePlantsContext } from "../context/PlantsApiContext";
-import PlantCard from "./PlantCard/PlantCard";
+import Card from "../../global components/Card";
+import { ProvidePlantsContext } from "../../context/PlantsApiContext";
+import PlantCard from "../PlantCard/PlantCard";
 
 function Garden() {
   const { PlantsState } = ProvidePlantsContext();

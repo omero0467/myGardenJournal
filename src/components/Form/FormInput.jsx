@@ -9,7 +9,7 @@ function FormInput({setFunc,input}) {
     <input
     id={input.id}
     placeholder={input.placeholder}
-      onChange={(e) => setFunc(e.target.value)}
+      onChange={(e) => setFunc(e)}
       className="rounded-lg py-2 border border-blue-200 px-2 focus:border-blue-500"
       type={input.type}
       name={input.id}

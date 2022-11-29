@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import InfoBtn from '../InfoBtn'
+import InfoBtn from './InfoBtn'
 
 function PlantCard({plant}) {
     // console.log(plant);
