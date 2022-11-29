@@ -25,7 +25,7 @@ function SignUp() {
     const id = e.target.id;
     const value = e.target.value;
 
-    setData((prev)=>({ ...prev, [id]: value }));
+    setData((prev) => ({ ...prev, [id]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -37,14 +37,13 @@ function SignUp() {
       setError("");
       setSucsess("All Good! 🤙🏽");
       setTimeout(() => {
-        setData({})
+        setData({});
         navigate("/account");
         setSucsess("");
       }, 2000);
       await setDoc(doc(db, "users", userRes.user.uid), {
-          ...data,
+        ...data,
         timeStamp: serverTimestamp(),
-        // displayName,
       })
         .then((res) => console.log(res.id))
         .catch((err) => err.message);
@@ -68,16 +67,23 @@ function SignUp() {
       </div>
       <Card>
         <form onSubmit={handleSubmit}>
-        {inputs.map((input,index) => (
-                  <FormInput key={input.id + index} input={input} setFunc={handleInput}/>
-                ))}
-        <button type="submit" className="rounded-lg w-full bg-blue-600 p-3 my-2 text-white hover:bg-blue-500 border border-blue-500">
-          Sign Up
-        </button>
-        <span className="underline text-red-500">{error && error}</span>
-        <span className="underline text-green-500">{sucsess && sucsess}</span>
-      </form>
-        </Card>
+          {inputs.map((input, index) => (
+            <FormInput
+              key={input.id + index}
+              input={input}
+              setFunc={handleInput}
+            />
+          ))}
+          <button
+            type="submit"
+            className="rounded-lg w-full bg-blue-600 p-3 my-2 text-white hover:bg-blue-500 border border-blue-500"
+          >
+            Sign Up
+          </button>
+          <span className="underline text-red-500">{error && error}</span>
+          <span className="underline text-green-500">{sucsess && sucsess}</span>
+        </form>
+      </Card>
     </div>
   );
 }

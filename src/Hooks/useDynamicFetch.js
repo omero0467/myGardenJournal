@@ -2,21 +2,21 @@ import  { useEffect, useState } from 'react'
 import { db } from '../firebase';
 import { onSnapshot,collection, } from "firebase/firestore";
 
-function useFetch() {
-    const [PlantsData, setPlantsData] = useState([])
+function useDynamicFetch(pax) {
+    const [paxData, setPaxData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
 
     async function getAllDocs () {
-        const unsubscribe = onSnapshot(collection(db,"plants"), (querySnapshot)=>{
+        const unsubscribe = onSnapshot(collection(db,pax), (querySnapshot)=>{
             const list = [];
             querySnapshot.forEach((doc) => {
                 list.push({ id: doc.id, ...doc.data() });
             });
             
-            setPlantsData((prev)=>prev=[...list])
-            localStorage.setItem('plantsData', JSON.stringify(list))
+            setPaxData((prev)=>prev=[...list])
+            localStorage.setItem(pax, JSON.stringify(list))
         }, (err) => {
             console.log(err)
             setError(err)
@@ -24,23 +24,25 @@ function useFetch() {
         return {unsubscribe}
     }
     
-    
+    //!check improve efficency with local storage
     useEffect(() => {
         setIsLoading(true)
-            const localData = JSON.parse(localStorage.getItem('plantsData'))
-        if (localData) {
-            console.log('inside if');
-            setPlantsData(localData)
-        } else {
-        const {unsubscribe} = getAllDocs()
+            const localData = JSON.parse(localStorage.getItem(pax))
+            // if (localData) {
+                //     console.log('inside if');
+                const {unsubscribe} = getAllDocs()
+            setPaxData(localData)
+        // } else {
         console.log('inside else');
         return () => {
             unsubscribe();
         };
-    }
-        }, [])
+    // }
+        }, [pax])
 
-    return {PlantsData,isLoading,error}
+        console.log(paxData);
+
+    return {paxData,isLoading,error}
 }
 
-export default useFetch
+export default useDynamicFetch

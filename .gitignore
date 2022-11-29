@@ -6,7 +6,6 @@
 .pnp.js
 /scss
 /WeekProject Planing
-
 # testing
 /coverage
 
@@ -23,3 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/context/uploadtodb.js
+src/context/UploadTest.js

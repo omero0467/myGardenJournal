@@ -43,6 +43,7 @@ export function AuthContext({ children }) {
             setUser(currentUser)
 
             const docRef = doc(db, "users", currentUser.uid);
+            // console.log(docRef);
             getUserDoc(docRef)
         })
         return () => {

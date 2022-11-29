@@ -33,33 +33,32 @@ export const userInputs = [
   
   export const productInputs = [
     {
-      id: 1,
+      id: 'gardenName',
       label: "Title",
       type: "text",
-      placeholder: "Apple Macbook Pro",
+      placeholder: "Main Garden",
     },
     {
-      id: 2,
+      id: "description",
       label: "Description",
       type: "text",
-      placeholder: "Description",
+      placeholder: "East Facing",
     },
     {
-      id: 3,
+      id: "category",
       label: "Category",
       type: "text",
-      placeholder: "Computers",
+      placeholder: "Vegtables",
     },
     {
-      id: 4,
-      label: "Price",
+      id: "totalItems",
+      label: "Total Plants",
       type: "text",
       placeholder: "100",
     },
     {
-      id: 5,
-      label: "Stock",
-      type: "text",
-      placeholder: "in stock",
+      id: "lastIrregation",
+      label: "Last Irregation",
+      type: "date",
     },
   ];

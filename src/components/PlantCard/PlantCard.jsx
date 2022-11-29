@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 import InfoBtn from './InfoBtn'
 
 function PlantCard({plant}) {
-    // console.log(plant);
     const [descriptiveText, setDescriptiveText] = useState('')
-    let name = plant['Common name']  
-    if(!name){
-        name= 'N/A'
-    } else if (name&&name.length>1){
-        name=[...plant['Common name']].join(', ')
+    let name = plant.name
+  if (Array.isArray(name)&&name.length>1){
+      // console.log(name);
+       name= name.join(', ')
     }
     function handleClick(event, secKeyName) {
         setDescriptiveText(()=>{
@@ -30,19 +28,19 @@ function PlantCard({plant}) {
             {name}
           </h1>
           <div className="text-lg font-semibold text-slate-500">
-            {plant.Categories}
+            {plant.categoris}
           </div>
         </div>
         <div className="border-blue-600 pt-2 pl-4 border-t text-sm font-medium text-slate-700 mt-2">
-            {plant.Climat}
+            {plant.climat}
           </div>
 
         <div className="flex flex-col sm: items-baseline mt-2 mb-6 pb-6 border-b-2 border-slate-200">
           <div className="items-baseline space-x-2 flex mb-3 text-sm">
-          <InfoBtn handleClick={handleClick} keyName={'Watering'} title={'Watering'}/>
-          <InfoBtn handleClick={handleClick} keyName={'Light ideal'} title={'Sunlight'}/>
-          <InfoBtn handleClick={handleClick} keyName={'Disease'} title={'Disease'}/>
-          <InfoBtn handleClick={handleClick} keyName={'Height potential'} secKeyName={'cm'} title={'Potential'}/>
+          <InfoBtn handleClick={handleClick} keyName={'watering'} title={'Watering'}/>
+          <InfoBtn handleClick={handleClick} keyName={'lightIdeal'} title={'Sunlight'}/>
+          <InfoBtn handleClick={handleClick} keyName={'disease'} title={'Disease'}/>
+          <InfoBtn handleClick={handleClick} keyName={'heightPotential'} secKeyName={'cm'} title={'Potential'}/>
       </div>
 
         <p className="text-sm border-grey-600 pt-2 pl-4 w-full border-t-2 text-amber-800">

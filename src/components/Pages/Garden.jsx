@@ -4,15 +4,14 @@ import { ProvidePlantsContext } from "../../context/PlantsApiContext";
 import PlantCard from "../PlantCard/PlantCard";
 
 function Garden() {
-  const { PlantsState } = ProvidePlantsContext();
+  const { PlantsData } = ProvidePlantsContext();
   const [query, setQuery] = useState("");
 
   const plantsRef = useRef();
 
   function dataFilter() {
-    return PlantsState.filter((plant) => {
-      return plant["Common name"]
-        ?.toString()
+    return PlantsData.filter((plant) => {
+      return plant.name?.toString()
         .toLowerCase()
         .includes(query.toLowerCase());
     });
