@@ -65,7 +65,7 @@ function Garden() {
   // })
 
   return (
-    <div className="flex flex-col items-center overscroll-x-contain justify-center p-4 ">
+    <div className="garden flex flex-col items-center overscroll-x-none justify-center p-4 ">
       <Card className="message bg-amber-200">
         Garden: <span className="font-bold">{currentGarden.gardenName}</span>
       </Card>
