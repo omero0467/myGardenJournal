@@ -17,7 +17,7 @@ function PlantCard({plant}) {
   return (
     <>
 
-    <div className="PlantCard flex flex-col font-sans">
+    <div className="PlantCard flex flex-col font-sans w-min">
       <div className="flex-none h-48 relative">
         <img src={plant.img} alt="" className="absolute inset-0 w-full h-full object-top object-cover" loading="lazy" />
       </div>

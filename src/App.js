@@ -18,14 +18,13 @@ import PlantsApiContext from './context/PlantsApiContext';
 
 
 function App() {
-
   return (
   <>  
   <NavBar />  
   {/* <UploadtoDB /> */}
     {/* <PlantsApiContext><UploadtoDB/></PlantsApiContext> */}
   <AuthContext>
-    <Routes>
+      <Routes>
     <Route path='/' element={<Landing />}/>
     <Route path='/login' element={<LoginPage />}/>
     <Route path='/mygarden' element={<ProtectedRoute> <MyGarden /> </ProtectedRoute>}/>

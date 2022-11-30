@@ -72,23 +72,20 @@ function MyGarden() {
               <Link
                 key={garden.id}
                 className="link-reset"
-                to={`/garden/${garden.id}`}
-              >
+                to={`/garden/${garden.id}`}>
+
                 <Card>{garden.gardenName}</Card>
+
               </Link>
             );
           })}
-          <Card>
+          
+           <Card>
             <button
-              onClick={(e) => {
-                toggleOverlay();
-              }}
-            >
-              {" "}
-              New Garden ++{" "}
-            </button>
+              onClick={(e) => { toggleOverlay(); }} > {" "} New Garden ++{" "} 
+              </button>
           </Card>
-        </div>
+           </div>
       </div>
       {overlay && (
         <form onSubmit={handleSubmit}
