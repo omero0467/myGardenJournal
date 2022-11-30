@@ -40,7 +40,7 @@ function useDynamicFetch(pax) {
     // }
         }, [pax])
 
-        console.log(paxData);
+        console.log('dynamicFetch');
 
     return {paxData,isLoading,error}
 }

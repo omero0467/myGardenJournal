@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
 import InfoBtn from './InfoBtn'
+import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore"; 
+import { db } from '../../firebase';
 
-function PlantCard({plant}) {
+
+
+function PlantCard({plant, currentGarden}) {
+  async function handleAdd(e){
+  const  gardenRef =  doc(db, 'gardens', currentGarden.id);
+  await updateDoc(gardenRef, {plants: arrayUnion(plant.id)})
+  
+  }
     const [descriptiveText, setDescriptiveText] = useState('')
     let name = plant.name
   if (Array.isArray(name)&&name.length>1){
@@ -21,7 +30,7 @@ function PlantCard({plant}) {
       <div className="flex-none h-48 relative">
         <img src={plant.img} alt="" className="absolute inset-0 w-full h-full object-top object-cover" loading="lazy" />
       </div>
-      <form className=" p-4">
+      <div className=" p-4">
 
         <div className="flex justify-between">
           <h1 className="text-lg font-semibold text-slate-900">
@@ -51,12 +60,12 @@ function PlantCard({plant}) {
 
         <div className=" space-x-4 mb-6 text-sm font-medium">
           <div className="  space-x-4">
-            <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
+            <button onClick={(e)=>{handleAdd(e)}} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
               Add to Garden
             </button>
           </div>
        </div>
-      </form>
+      </div>
     </div>
     </>
   )

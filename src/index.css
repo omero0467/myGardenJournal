@@ -94,7 +94,7 @@ input:focus {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: row;
   gap: 1rem;
-  margin: 40vh 1rem;
+  margin: 1rem 0;
 }
 
 .Card.welcome_message {
@@ -110,6 +110,10 @@ input:focus {
   place-items: center;
   gap: 1rem;
   margin: 1rem;
+}
+
+.garden-container {
+  box-shadow: 0 0 1rem 0 rgba(31, 255, 94, 0.7), inset -5px 5px 1rem 0 rgba(0, 0, 0, 0.2), inset 5px -5px 1rem 0 rgba(0, 0, 0, 0.15);
 }
 
 @tailwind base;

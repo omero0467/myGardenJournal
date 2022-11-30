@@ -19,13 +19,14 @@ function Garden() {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         console.log(docSnap);
-        setCurrentGarden(docSnap.data())
+        setCurrentGarden({...docSnap.data(), id: docSnap.id})
       } else {
         console.log("No such document!");
       }
     }
     getGarden()
   },[params])
+  
   const [state, dispatch] = useReducer(gardenReducer, currentGarden)
 
 
@@ -43,12 +44,16 @@ function Garden() {
     setoverlay((prev) => !prev);
   }
 
+
   return (
     <div className="flex flex-col items-center justify-center p-4 ">
       <Card className="message">
-        Last irregation: {currentGarden.lastIrregation},
+        Last irregation: 
+        {currentGarden.lastIrregation},
       </Card>
       <button onClick={toggleOverlay} className="px-16 mt-8 h-9 rounded-lg flex items-center justify-center font-semibold bg-slate-900 text-white">Add Plants +</button>
+
+      <div className="garden-container h-[550px] w-[800px] mt-4 rounded-lg container bg-slate-100">{currentGarden.id}</div>
 
       {overlay&&
       <><input
@@ -64,7 +69,7 @@ function Garden() {
         {dataFilter().map((plant) => {
           return (
             <Card key={plant.id}>
-              <PlantCard plant={plant} />
+              <PlantCard currentGarden={currentGarden} plant={plant} />
             </Card>
           );
         })}

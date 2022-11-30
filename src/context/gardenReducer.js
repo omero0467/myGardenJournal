@@ -1,10 +1,16 @@
-
+const ACTIONS = {
+    add: "add_plant",
+    update: "update_plant",
+    delete: "delete_plant"
+}
 
 function gardenReducer(state,action) {
 switch (action.type) {
-    case "go":
+    case ACTIONS.add:
         
-        break;
+        return {
+            ...state,
+        }
 
     default:
         break;
