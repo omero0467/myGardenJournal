@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import InfoBtn from './InfoBtn'
-import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore"; 
+import { arrayUnion, doc, updateDoc } from "firebase/firestore"; 
 import { db } from '../../firebase';
+import { useParams } from 'react-router-dom';
 
 
 
-function PlantCard({plant, currentGarden}) {
+function PlantCard({plant, setCurrentGarden}) {
+  const params =useParams()
   async function handleAdd(e){
-  const  gardenRef =  doc(db, 'gardens', currentGarden.id);
-  await updateDoc(gardenRef, {plants: arrayUnion(plant.id)})
-  
+  const  gardenRef =  doc(db, 'gardens', params.id);
+  await updateDoc(gardenRef, {plants: arrayUnion(plant)})
+  setCurrentGarden(prev =>({...prev, plants:[...prev.plants,plant]}))
   }
     const [descriptiveText, setDescriptiveText] = useState('')
     let name = plant.name
@@ -27,7 +29,7 @@ function PlantCard({plant, currentGarden}) {
     <>
 
     <div className="PlantCard flex flex-col font-sans w-min">
-      <div className="flex-none h-48 relative">
+      <div className="flex-none h-56 relative">
         <img src={plant.img} alt="" className="absolute inset-0 w-full h-full object-top object-cover" loading="lazy" />
       </div>
       <div className=" p-4">
@@ -53,7 +55,7 @@ function PlantCard({plant, currentGarden}) {
       </div>
 
         <p className="text-sm border-grey-600 pt-2 pl-4 w-full border-t-2 text-amber-800">
-           {!descriptiveText&&'click '}{descriptiveText.bol&&'Height Potenial:'} {descriptiveText.text} {descriptiveText.bol&&'cm'}
+           {!descriptiveText&&'click to see description'}{descriptiveText.bol&&'Height Potenial:'} {descriptiveText.text} {descriptiveText.bol&&'cm'}
         </p>
 
         </div>

@@ -8,7 +8,8 @@
 }
 
 .active {
-  background-color: lightsalmon;
+  background-color: rgb(253, 230, 138);
+  border-radius: 1rem;
 }
 
 .page {
@@ -63,11 +64,26 @@ input:focus {
 }
 
 .Nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  gap: 1rem;
 }
 
+.moto {
+  letter-spacing: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .Nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navigation {
+    margin: 0.5rem;
+  }
+}
 .user_image {
   min-width: 150px;
   min-height: 150px;
@@ -87,14 +103,6 @@ input:focus {
   min-height: 55vmin;
   width: clamp(300px, 60vw, 600px);
   align-self: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-flow: row;
-  gap: 1rem;
-  margin: 1rem 0;
 }
 
 .Card.welcome_message {
@@ -126,11 +134,12 @@ input:focus {
 }
 
 body {
+  z-index: 1;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgba(57, 202, 65, 0.5);
+  background: rgba(59, 255, 68, 0.5);
   backdrop-filter: blur(5.5px);
   -webkit-backdrop-filter: blur(5.5px);
 }
@@ -145,18 +154,6 @@ code {
 }
 
 @media (max-width: 900px) {
-  .Nav {
-    margin-left: 1rem;
-    width: 7rem;
-    position: absolute;
-    top: 0;
-    transform: translateX(100vw);
-    overflow-y: none;
-    padding: 2rem;
-    flex-direction: column;
-    background-color: #f4f4f4;
-    min-height: 100vh;
-  }
   .navigation_menu {
     display: flex;
     flex-direction: column;
@@ -168,6 +165,16 @@ code {
 .overlay.gardenform {
   background: rgba(0, 59, 177, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.overlay_plant_search {
+  padding: 3rem;
+  background: rgba(49, 49, 49, 0.392);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.7);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;

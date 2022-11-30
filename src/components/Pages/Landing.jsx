@@ -7,9 +7,10 @@ function Landing() {
 
   const {user, UserData }=UserAuth()
   return (
-    <div className='landing page font-sans'>
-    <Card>
-      <div className='welcome_message message'>Hello <span className='capitalize'>{user&&UserData.displayName}</span>,<br/> Welcome <br/> to Your Garden Journal</div>
+    <div className='landing font-sans'>
+    <Card className={'container max-w-[600px] bg-indigo-300'}>
+      <h3 className='text-center p-10'>Hello <span className='font-bold text-emerald-900 capitalize'>{user&&UserData.displayName}</span>,<br/> Welcome <br/> to Your Garden Journal</h3>
+      <img  src="/garden-of-life-logo-vector.svg" alt="" />
    {!user&& <Link className={'link-reset'} to={'/login'}>
       <div className='mt-4 btn btn_log_in'>Click here to Log in</div>
     </Link>}
